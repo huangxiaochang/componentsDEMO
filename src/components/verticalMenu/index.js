@@ -17,11 +17,12 @@ export default {
 		this.addIsShowToMenus()
 	},
 	methods: {
-		// 改变传来的菜单列表menus,为每一项添加isShow,isActive字段，进行展开和收缩的控制
+		// 改变传来的菜单列表menus,为每一项添加isShow,isActive,isOpen字段，进行展开和收缩的控制
 		addIsShowToMenus() {
 			this.menus.forEach((menus) => {
 				menus.isShow = false
 	  			menus.isActive = false
+	  			menus.isOpen = false
 				if (menus.children) {
 					for (let subMenu of menus.children) {
 						subMenu.isShow = false
@@ -29,6 +30,7 @@ export default {
 						if (subMenu.children) {
 							for (let item of subMenu.children) {
 								item.isShow = false
+								subMenu.isOpen = false
 								menus.isActive = false
 							}
 						}
@@ -41,6 +43,7 @@ export default {
 			// 如果有子菜单的话，展开或者收缩，否则跳转到相应的路由
 			if (menu.children && (menu.children.length !== 0)) {
 				menu.isShow = !menu.isShow
+				menu.isOpen = !menu.isOpen
 			}
 			else {
 				// 第一个点击的菜单

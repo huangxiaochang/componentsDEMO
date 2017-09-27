@@ -37,7 +37,7 @@
 			position: absolute;
 			display: inline-block;
 			top: 0;
-			left: 210px;
+			left: 230px;
 			right: 0;
 			vertical-align: top;
 			overflow-y: auto;
