@@ -1,19 +1,21 @@
+const Home = resolve => require(['views/home/index.vue'], resolve) // 首页
 const Order = resolve => require(['views/order/index.vue'], resolve) // 订单首页
 
 export default [
 	{
 		path: '/home',
-		name: 'Home',
+		name: 'home',
+		component: Home,
 		meta: {
 			title: '首页'
 		}
 	},
 	{
 		path: '/order',
-		name: 'Order',
+		name: 'order',
 		component: Order,
 		meta: {
-			title: '订单首页'
+			title: '订单管理首页'
 		}
 	}
 ]

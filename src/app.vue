@@ -1,14 +1,17 @@
 <template>
 	<div id="app">
-		<header class="header">
-			welcome to huangxiaochang vue-components-demo project
-		</header>
-		<div class="container">
-			<div class="nav-wrape">
-				<pg-menu :menus="menuList"></pg-menu>
-			</div>
-			<div class="content-wrape">
-				<router-view></router-view>
+		<!-- <router-view></router-view> -->
+		<div>
+			<header class="header">
+				welcome to huangxiaochang vue-components-demo
+			</header>
+			<div class="container">
+				<aside class="nav-wrape">
+					<pg-menu :menus="menuList"></pg-menu>
+				</aside>
+				<section class="content-wrape">
+					<router-view></router-view>
+				</section>
 			</div>
 		</div>
 	</div>
@@ -28,8 +31,6 @@
 		.nav-wrape {
 			display: inline-block;
 			width: 200px;
-			height: 600px;
-			background-color: rgba(105, 115, 125, 0.5);
 			vertical-align: top;
 		}
 		.content-wrape {
@@ -38,14 +39,13 @@
 			top: 0;
 			left: 210px;
 			right: 0;
-			height: 600px;
 			vertical-align: top;
+			overflow-y: auto;
 		}
 	}
 </style>
 <script type="text/babel">
 	import { menuList } from 'src/data/menu.js'
-
 	export default {
 		data() {
 			return {
