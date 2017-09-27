@@ -74,7 +74,7 @@ if (production) {
 module.exports = {
 	entry: {
 		build: './src/main.js',
-		common: ['vue']
+		common: ['vue','vue-router']
 	},
 	output: {
 		path: path.resolve(__dirname+'/'+buildFolder),
