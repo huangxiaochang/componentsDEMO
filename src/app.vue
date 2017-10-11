@@ -10,7 +10,9 @@
 					<pg-menu :menus="menuList"></pg-menu>
 				</aside>
 				<section class="content-wrape">
-					<router-view></router-view>
+					<transition name="fade">
+						<router-view></router-view>
+					</transition>
 				</section>
 			</div>
 		</div>
@@ -43,6 +45,16 @@
 			overflow-y: auto;
 		}
 	}
+	.fade-enter-active {
+        animation: fade-in 1s;
+    }
+    .fade-leave-active {
+        opacity: 0;
+    }
+    @keyframes fade-in {
+        0% { opacity: 0 }
+        100% { opacity: 1 }
+    }
 </style>
 <script type="text/babel">
 	import { menuList } from 'src/data/menu.js'

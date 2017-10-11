@@ -11,4 +11,28 @@ export const menuList = [
             },
         ]
     },
+    {
+        path: '/',
+        name: '省市区',
+        iconCls: '',
+        children: [
+            {
+                path: '/region',
+                name: '省市区组件',
+                iconCls: ''
+            },
+        ]
+    },
+    {
+        path: '/',
+        name: '时间选择',
+        iconCls: '',
+        children: [
+            {
+                path: '/calendar',
+                name: '日历面板组件',
+                iconCls: ''
+            },
+        ]
+    },
 ]

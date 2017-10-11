@@ -1,11 +1,11 @@
 <template>
-	<div>
-		这里是订单管理首页
-	</div>
+	<section>
+		<pg-calendar></pg-calendar>
+	</section>
 </template>
 <script type="text/babel">
 	import index from './index'
 	export default {
 		...index
 	}
-</script
+</script>
