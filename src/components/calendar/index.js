@@ -27,57 +27,54 @@ export default {
 		}
 	},
 	mounted() {
-		// 初始化日历日期
-		this.initDate(this.current)
 		// 获取目前的年、月、日
 		let date = new Date()
 		this.nowYear = date.getFullYear()
 		this.nowMonth = date.getMonth()
 		this.nowDay = date.getDate()
+		// 初始化日历日期
+		this.initDate(this.current)
 	},
 	methods: {
 		// 初始化日期
 		initDate(current) {
 			let date;
-			// 有传初始时间的以传入的初始化日历面板，否则以当前日期初始化
+			// 有传初始时间的以传入的初始化日历面板，否则以当前月1号初始化
 			if (current !== '') {
-				date = new Date(current)
+				let arr = current.split('-')
+				date = new Date(arr[0], (arr[1]-1), 1)
 			}
 			else {
-				date = new Date()
+				date = new Date(this.nowYear, this.nowMonth, 1)
 			}
-
 			// 获取当前的年、月、日、星期
 			this.currentYear = date.getFullYear()
 			this.currentMonth = date.getMonth()+1
-			this.currentDay = date.getDate()
 			this.currnentWeek = date.getDay()
+
 			// 把星期天转化成7
 			if (this.currnentWeek === 0) {
 				this.currnentWeek = 7
-			}
-
-			let dateStr = this.formatDate(this.currentYear, this.currentMonth, 1)
-
+			}						
 			// 先清空之前的日历面板
 			this.dayList.length = 0
 			
 			// 把当前日期之前的日期放入dayList中
 			for (let i = this.currnentWeek-1; i >= 0; i--) {
-				let d = new Date(dateStr)
+				let d = new Date(date)
 				d.setDate(d.getDate() - i)
 				this.dayList.push(d)
 			}
-			// 获取一个月的天数
-			let dateNum = new Date(this.currentYear, this.currentMonth, 0).getDate()
+			// 获取一个月天数
+			let dayNum = new Date(this.currentYear, this.currentMonth, 0).getDate()
+			// 获取需要的行数
+			let first = 0
+			this.currnentWeek == 7 ? first = 1 : first = 8-this.currnentWeek
+			let row = 1+ Math.ceil((dayNum-first)/7)
 			
-			// 获取需要的函数
-			let count = (dateNum+this.currnentWeek)/7
-			let row =  (dateNum+this.currnentWeek)%7 === 0 ? count : count+1
-			console.log(row,'row')
 			// 把当前日期之后的日期放入dayList中
 			for (let i = 1; i <= row*7 - this.currnentWeek; i++) {
-				let d = new Date(dateStr)
+				let d = new Date(date)
 				d.setDate(d.getDate() + i)
 				this.dayList.push(d)
 			}
@@ -98,7 +95,7 @@ export default {
 				currentMonth = 12
 				currentYear -= 1
 			}
-			this.initDate(`${currentYear}-${currentMonth}-01`)
+			this.initDate(`${currentYear}-${currentMonth}`)
 		},
 		next(currentYear, currentMonth) {
 			currentMonth += 1
@@ -106,7 +103,7 @@ export default {
 				currentMonth = 1
 				currentYear += 1
 			}
-			this.initDate(`${currentYear}-${currentMonth}-01`)
+			this.initDate(`${currentYear}-${currentMonth}`)
 		},
 		pick(day) {
 			alert(this.formatDate(day.getFullYear(),(day.getMonth()+1),day.getDate()))
