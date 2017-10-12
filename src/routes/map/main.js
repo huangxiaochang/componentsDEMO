@@ -3,6 +3,7 @@ const VerticalMenu = resolve => require(['views/menu/verticalMenu/index.vue'], r
 
 const Region = resolve => require(['views/region/index.vue'], resolve) // 省市区
 const Calendar = resolve => require(['views/calendar/index.vue'], resolve) // 日历
+const MonthSelect = resolve => require(['views/monthSelect/index.vue'], resolve) // 年月选择组件
 
 export default [
 	{
@@ -33,6 +34,14 @@ export default [
 		path: '/calendar',
 		name: 'calendar',
 		component: Calendar,
+		meta: {
+			title: '日历面板'
+		}
+	},
+	{
+		path: '/monthSelect',
+		name: 'monthSelect',
+		component: MonthSelect,
 		meta: {
 			title: '日历面板'
 		}

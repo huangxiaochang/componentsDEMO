@@ -76,7 +76,9 @@
 			font-size: 16px;
 			span {
 				display: block;
-				margin-top: 5px;
+				margin: 5px auto;
+				width: 50px;
+				cursor: pointer;
 			}
 		}
 	}

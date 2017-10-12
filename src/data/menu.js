@@ -33,6 +33,11 @@ export const menuList = [
                 name: '日历面板组件',
                 iconCls: ''
             },
+            {
+                path: '/monthSelect',
+                name: '年月选择组件',
+                iconCls: ''
+            },
         ]
     },
 ]
