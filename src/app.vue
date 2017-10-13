@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<!-- <router-view></router-view> -->
-		<div>
+		<!-- <div> -->
 			<header class="header">
 				welcome to huangxiaochang vue-components-demo
 			</header>
@@ -15,7 +15,7 @@
 					</transition>
 				</section>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 </template>
 <style type="stylesheet/less" lang="less" scoped>
@@ -28,20 +28,13 @@
 		font-size: 18px;
 	}
 	.container {
-		position: relative;
 		width: 100%;
 		.nav-wrape {
-			display: inline-block;
 			width: 200px;
-			vertical-align: top;
+			float: left;
 		}
 		.content-wrape {
-			position: absolute;
-			display: inline-block;
-			top: 0;
-			left: 230px;
-			right: 0;
-			vertical-align: top;
+			padding-left: 20px;
 			overflow-y: auto;
 		}
 	}

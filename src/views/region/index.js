@@ -4,7 +4,9 @@ export default {
 			state: '',
 			city: '',
 			district: '',
-			style: {}
+			style: {
+				'margin-left': '60px'
+			}
 		}
 	}
 }

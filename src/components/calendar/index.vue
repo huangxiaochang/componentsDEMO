@@ -3,10 +3,10 @@
 		<!-- 日历的头部-->
 		<div class="header">
 			<!--     年份和月份 前后箭头 -->
-			<ul class="month" :style="styles">
+			<ul class="month">
 				<li class="arrow pre-btn" @click="pre(currentYear, currentMonth)"><</li>
 				<li class="year-month">
-					<pg-month-select @picmonth="picmonth" class="month-select">
+					<pg-month-select :value.sync="yearMonth" class="month-select">
 						<span>{{currentYear}}</span>
 						<span>{{currentMonth}}月</span>
 					</pg-month-select>

@@ -23,7 +23,18 @@ export default {
 			nowYear: '',//目前年份
 			nowMonth: '',//目前月份
 			nowDay: '',//目前日期
-			dayList: []
+			dayList: [],
+			yearMonth: ''
+		}
+	},
+	watch: {
+		yearMonth() {
+			if (this.yearMonth !== '') {
+				let arr = this.yearMonth.split('-')
+				this.currentYear = arr[0]
+				this.currentMonth = arr[1]
+				this.initDate(`${arr[0]}-${arr[1]}`)
+			}
 		}
 	},
 	mounted() {
@@ -109,11 +120,5 @@ export default {
 			alert(this.formatDate(day.getFullYear(),(day.getMonth()+1),day.getDate()))
 			this.$emit('pickDay', day)
 		},
-		picmonth(val) {
-			let arr = val.split('-')
-			this.currentYear = arr[0]
-			this.currentMonth = arr[1]
-			this.initDate(`${arr[0]}-${arr[1]}`)
-		}
 	}
 }

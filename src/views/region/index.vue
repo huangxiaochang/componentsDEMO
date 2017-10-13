@@ -19,13 +19,17 @@
 		<h3 class="title-item">效果</h3>
 		<p class="content-item">
 			效果如下
-			<pg-region :state.sync="state" :city.sync="city" :district.sync="district" :styles="style"></pg-region>
+			
 		</p>
+		<pg-region :state.sync="state" :city.sync="city" :district.sync="district" :styles="style"></pg-region>
 	</section>
 </template>
+
 <style type="stylesheet/less" lang="less" scoped>
-	
+	@import '~src/assets/css/common.less';
+
 </style>
+
 <script type="text/babel">
 	import index from './index.js'
 	export default {

@@ -7,6 +7,12 @@ export default {
 				return {}
 			}
 		},
+		value: {
+			type: String,
+			default() {
+				return ''
+			}
+		}
 	},
 	data() {
 		return {
@@ -107,7 +113,10 @@ export default {
 			this.currentYear += 1
 		},
 		pick(month) {
-			this.$emit('picmonth', `${this.currentYear}-${month.value}`)
+			// 事件触发的方式绑定数据
+			// this.$emit('picmonth', `${this.currentYear}-${month.value}`)
+			// 双向数据绑定的方式
+			this.$emit('update:value', `${this.currentYear}-${month.value}`)
 			this.show = false
 		},
 		showDate() {

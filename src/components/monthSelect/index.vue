@@ -30,12 +30,10 @@
 	.wrape {		
 		position: relative;
 		display: inline-block;
-		z-index: 10;
-		width: 20%;
+		z-index: 999;
 	}
 	.calendar{
-		position: relative;
-		z-index: 11;		
+		position: relative;		
 	}
 	.calendar_slot {
 		display: inline-block;
@@ -45,7 +43,7 @@
         top: 3px;
         border-radius: 10px;
         border: 1px solid rgba(205, 215, 225, 0.5);
-        z-index: 999;
+        
         background-color: #58B7FF;
 	}
 	.year {

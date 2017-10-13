@@ -1,6 +1,6 @@
 <template>
-    <div class="pg-region">
-        <div class="form-item-select state" :style="styles">
+    <div class="pg-region" :style="styles">
+        <div class="form-item-select state">
             <select v-model="stateRegionID" class="select-item">
                 <option disabled value="">省</option>
                 <option v-for="stateInfo in stateList" :value="stateInfo.value" :key="stateInfo.value">
@@ -8,7 +8,7 @@
                 </option>
             </select>
         </div>
-        <div class="form-item-select city" :style="styles">
+        <div class="form-item-select city">
             <select v-model="cityRegionID" class="select-item">
                 <option value="">市</option>
                 <option v-for="cityInfo in cityList" :value="cityInfo.value" :key="cityInfo.value">
@@ -16,7 +16,7 @@
                 </option>
             </select>
         </div>
-        <div class="form-item-select district" :style="styles">
+        <div class="form-item-select district">
             <select v-model="districtRegionID" class="select-item">
                 <option value="">区</option>
                 <option v-for="districtInfo in districtList" :value="districtInfo.value" :key="districtInfo.value">

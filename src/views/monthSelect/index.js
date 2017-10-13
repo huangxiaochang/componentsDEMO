@@ -1,7 +1,7 @@
 export default {
 	data() {
 		return {
-			isShow: true
+			time: ''
 		}
 	},
 	methods: {
