@@ -1,13 +1,13 @@
 <template>
-	<div  class="wrape">
+	<div class="wrape" :style="styles">
 		<!-- 派发的内容 -->
 		<div class="calendar_slot" @click="showDate">
 	        <slot></slot>
 	    </div>
 	    <div class="calendar">
-	    	<div class="year-month" :style="styles" v-if="show">
+	    	<div class="year-month" v-if="show">
 				<!--     年份 前后箭头 -->
-				<ul class="year" :style="styles">
+				<ul class="year">
 					<li class="arrow pre-btn" @click="pre(currentYear)"><</li>
 					<li>
 						{{currentYear}}
@@ -27,27 +27,30 @@
 </template>
 <style type="stylesheet/less" lang="less" scoped>
 	@import '~src/assets/css/common.less';
-	.wrape, .calender {
+	.wrape {		
 		position: relative;
-		z-index: 0;
+		display: inline-block;
+		z-index: 10;
+		width: 20%;
 	}
-	.calender {
-		height: 300px;
+	.calendar{
+		position: relative;
+		z-index: 11;		
+	}
+	.calendar_slot {
+		display: inline-block;
 	}
 	.year-month {
-		width: 300px;
 		position: absolute;
-		left: 0;
-        top: 20px;
-        padding: 15px 20px 20px 20px;
+        top: 3px;
         border-radius: 10px;
         border: 1px solid rgba(205, 215, 225, 0.5);
-        overflow: hidden;
         z-index: 999;
+        background-color: #58B7FF;
 	}
 	.year {
 		width: 100%;
-        background: #00B8EC;
+        background: #13CE66;
 		color: #fff;
 		position: relative;
 		padding: 15px 0;
@@ -86,7 +89,7 @@
 				height: 100%;
 				width: 100%;
 				cursor: pointer;
-				background-color: rgba(5, 190, 255, 0.5);
+				background-color: #FF4949;
 			}
 			.other-month {
 				display: inline-block;

@@ -108,6 +108,12 @@ export default {
 		pick(day) {
 			alert(this.formatDate(day.getFullYear(),(day.getMonth()+1),day.getDate()))
 			this.$emit('pickDay', day)
+		},
+		picmonth(val) {
+			let arr = val.split('-')
+			this.currentYear = arr[0]
+			this.currentMonth = arr[1]
+			this.initDate(`${arr[0]}-${arr[1]}`)
 		}
 	}
 }

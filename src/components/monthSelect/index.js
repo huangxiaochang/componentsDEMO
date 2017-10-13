@@ -70,19 +70,24 @@ export default {
 	created() {
 		// 点击文档其他的地方的时候，隐藏面板
         document.addEventListener('click', (e) => {
-            if (!this.$el.contains(e.target)) {
+        	let source1 = this.$el.childNodes[2]
+        	let source2 = this.$el.childNodes[0]
+            if (!source1.contains(e.target) && !source2.contains(e.target)) {
                 this.show = false
             }
         })
 	},
-	mounted() {
-		// 获取目前的年月
-		let date = new Date()
-		this.nowYear = date.getFullYear()
-		this.nowMonth = this.formatDate(date.getMonth()+1)
-		this.currentYear = this.nowYear
-		this.currentMonth = this.nowMonth
-		
+	watch: {
+		show() {
+			if (this.show) {
+				// 获取目前的年月
+				let date = new Date()
+				this.nowYear = date.getFullYear()
+				this.nowMonth = this.formatDate(date.getMonth()+1)
+				this.currentYear = this.nowYear
+				this.currentMonth = this.nowMonth
+			}
+		}	
 	},
 	methods: {
 		// 格式化年月格式，如2017-09
@@ -103,6 +108,7 @@ export default {
 		},
 		pick(month) {
 			this.$emit('picmonth', `${this.currentYear}-${month.value}`)
+			this.show = false
 		},
 		showDate() {
 			this.show = true

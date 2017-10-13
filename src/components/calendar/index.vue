@@ -6,8 +6,10 @@
 			<ul class="month" :style="styles">
 				<li class="arrow pre-btn" @click="pre(currentYear, currentMonth)"><</li>
 				<li class="year-month">
-					<span>{{currentYear}}</span>
-					<span>{{currentMonth}}月</span>
+					<pg-month-select @picmonth="picmonth" class="month-select">
+						<span>{{currentYear}}</span>
+						<span>{{currentMonth}}月</span>
+					</pg-month-select>
 				</li>
 				<li class="arrow next-btn" @click="next(currentYear, currentMonth)">></li>
 			</ul>
@@ -62,6 +64,7 @@
 			cursor: pointer;
 			top: 50%;
 			margin-top: -15px;
+			z-index: 10;
 			&.pre-btn {
 				left: 2%;
 			}
@@ -74,11 +77,16 @@
 			margin: 0 auto;
 			text-align: center;
 			font-size: 16px;
+			position: relative;
+			z-index: 0;
 			span {
 				display: block;
 				margin: 5px auto;
 				width: 50px;
 				cursor: pointer;
+			}
+			.month-select {
+				width: 60%;
 			}
 		}
 	}
