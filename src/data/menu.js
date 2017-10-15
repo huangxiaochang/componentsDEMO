@@ -40,4 +40,16 @@ export const menuList = [
             },
         ]
     },
+    {
+        path: '/',
+        name: '树形组件',
+        iconCls: '',
+        children: [
+            {
+                path: '/tree',
+                name: '无限级树形',
+                iconCls: ''
+            }        
+        ]
+    },
 ]

@@ -1,11 +1,22 @@
 <template>
 	<ul class="menu-wrape">
 		<li v-for="menu in menus" class="menu-item">
-			<span class="menu-name" :class="[menu.isActive ? 'active' : '', menu.isOpen ? 'open' : 'close']" @click="showSubMenu(menu)">{{menu.name}}</span>
+			<!-- <span class="menu-name" :class="[menu.isActive ? 'active' : '', menu.isOpen ? 'open' : 'close']" @click="showSubMenu(menu)">{{menu.name}}</span> -->
+			<div class="menu-name" :class="[menu.isActive ? 'active' : '']" @click="showSubMenu(menu)">
+				<span>{{menu.name}}</span>
+				<span class="open" v-if="menu.isOpen">></span>
+				<span class="close" v-else>></span>
+			</div>
+			
 			<transition name="fade">
 			<ul class="sub-menu" v-if="menu.isShow && menu.children.length !== 0">
 				<li class="sub-menu-item" v-for="subMenu in menu.children">
-					<span class="menu-name sub-name" :class="[subMenu.isActive ? 'active' : '', {'open': subMenu.children && subMenu.isOpen} ,{'close': subMenu.children && !subMenu.isOpen}]" @click="showSubMenu(subMenu)">{{subMenu.name}}</span>
+					<!-- <span class="menu-name sub-name" :class="[subMenu.isActive ? 'active' : '', {'open': subMenu.children && subMenu.isOpen} ,{'close': subMenu.children && !subMenu.isOpen}]" @click="showSubMenu(subMenu)">{{subMenu.name}}</span> -->
+					<div class="menu-name sub-name" :class="[subMenu.isActive ? 'active' : '']" @click="showSubMenu(subMenu)">
+						<span>{{subMenu.name}}</span>
+						<span class="open" v-if="subMenu.children && subMenu.isOpen">></span>
+						<span class="close" v-if="subMenu.children && !subMenu.isOpen">></span>
+					</div>
 					<transition name="fade">
 					<ul class="sub-menu sub-sbu-menu" v-if="subMenu.isShow && subMenu.children.length !== 0">
 						<li class="sub-menu-item" v-for="item in subMenu.children">
@@ -33,7 +44,19 @@
 		color: #2894ff;
 	}
 	// 控制三角形的展开或收缩
-	.close:after {
+	.open {
+		float: right;
+		display: inline-block;
+		transform: rotate(-90deg);
+		margin-right: 25px;
+	}
+	.close {
+		float: right;
+		display: inline-block;
+		transform: rotate(90deg);
+		margin-right: 25px;
+	}
+	/*.close:after {
 		content: '';
 		width: 0;
 		height: 0;
@@ -54,7 +77,7 @@
 		border-left: 8px solid #1F2D3D;
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
-	}
+	} */
 	// 菜单标题
 	.menu-name {
 		display: inline-block;

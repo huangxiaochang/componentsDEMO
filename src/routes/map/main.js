@@ -4,6 +4,7 @@ const VerticalMenu = resolve => require(['views/menu/verticalMenu/index.vue'], r
 const Region = resolve => require(['views/region/index.vue'], resolve) // 省市区
 const Calendar = resolve => require(['views/calendar/index.vue'], resolve) // 日历
 const MonthSelect = resolve => require(['views/monthSelect/index.vue'], resolve) // 年月选择组件
+const Tree = resolve => require(['views/tree/index.vue'], resolve) // 树形控件
 
 export default [
 	{
@@ -44,6 +45,14 @@ export default [
 		component: MonthSelect,
 		meta: {
 			title: '日历面板'
+		}
+	},
+	{
+		path: '/tree',
+		name: 'tree',
+		component: Tree,
+		meta: {
+			title: '树形组件'
 		}
 	}
 ]
