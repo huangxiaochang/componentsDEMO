@@ -5,6 +5,7 @@ const Region = resolve => require(['views/region/index.vue'], resolve) // 省市
 const Calendar = resolve => require(['views/calendar/index.vue'], resolve) // 日历
 const MonthSelect = resolve => require(['views/monthSelect/index.vue'], resolve) // 年月选择组件
 const Tree = resolve => require(['views/tree/index.vue'], resolve) // 树形控件
+const TimePack = resolve => require(['views/timePack/index.vue'], resolve) // 树形控件
 
 export default [
 	{
@@ -53,6 +54,14 @@ export default [
 		component: Tree,
 		meta: {
 			title: '树形组件'
+		}
+	},
+	{
+		path: '/timePack',
+		name: 'timePack',
+		component: TimePack,
+		meta: {
+			title: '时间选择组件'
 		}
 	}
 ]
