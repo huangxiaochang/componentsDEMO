@@ -1,41 +1,46 @@
 <template>
-	<div class="time-wrape">
-		<div class="time-slot">
+	<div class="time-select">
+		<div class="time-slot" @click="showTimePack">
 			<slot></slot>
 		</div>
-		<div class="time">
-			<div class="selectRegion">
-				<span class="first">:1</span>
+		<div class="time-wrape">
+			<div class="time" v-show="show">
+				<div class="selectRegion">
+					<span class="first">:</span>
+				</div>
+				<ul class="hours time-item" @click="scrollToPos($event)">
+					<li v-for="(item,index) in 24" :key="index">{{formatTime(index)}}</li>
+				</ul>
+				<ul class="minutes time-item" @click="scrollToPos($event)">
+					<li v-for="(item,index) in 60" :key="index">{{formatTime(index)}}</li>
+				</ul>
+				<ul class="seconds time-item" @click="scrollToPos($event)">
+					<li v-for="(item,index) in 60" :key="index">{{formatTime(index)}}</li>
+				</ul>
+				
+				<div class="btn-group">
+					<span @click="close">取消</span><span class="save" @click="save">确定</span>
+				</div>
 			</div>
-			<ul class="hours time-item">
-				<li v-for="(item,index) in 24">{{formatTime(index)}}</li>
-			</ul>
-			<ul class="minutes time-item">
-				<li v-for="(item,index) in 60">{{formatTime(index)}}</li>
-			</ul>
-			<ul class="seconds time-item">
-				<li v-for="(item,index) in 60">{{formatTime(index)}}</li>
-			</ul>
-			
-			<div class="btn-group">
-				<span>取消</span><span class="save" @click="save">确定</span>
-			</div>
-			
 		</div>
+		
 	</div>
 </template>
 
 <style type="stylesheet/css" lang="less" scoped>
 	@import '~src/assets/css/common.less';
-	.time {
+	.time-wrape {
 		position: relative;
+	}
+	.time {
+		position: absolute;
 		width: 150px;
 		height: 200px;
 		font-size: 0;
 		border: 1px solid #ccc;
 		padding-bottom: 30px;
 		box-shadow: 3px 4px 4px rgba(205,215,225,0.5);
-		z-index: 5;
+		z-index: 10;
 		.time-item {
 			display: inline-block;
 			width: 33.3%;
@@ -63,7 +68,7 @@
 			width: 100%;
 			height: 20px;
 			background: rgba(32,160,255,0.6);
-			z-index: 10;
+			z-index: 5;
 			.first {
 				position: absolute;
 				display: inline-block;
@@ -72,7 +77,7 @@
 				left: 30px;
 				top: 5px;
 				color: red;
-				z-index: 20;
+				// z-index: 20;
 			}
 		}
 	}

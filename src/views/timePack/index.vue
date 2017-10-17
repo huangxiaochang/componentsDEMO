@@ -18,7 +18,10 @@
 			效果如下
 			
 		</p>
-		<pg-time-pack></pg-time-pack>
+
+		<pg-time-pack :value.sync="value">
+			<input type="text" class="pg-time-pack" v-model="value" readonly>
+		</pg-time-pack>
 	</section>
 </template>
 
@@ -30,6 +33,7 @@
 	export default {
 		data() {
 			return {
+				value: ''
 			}
 		}
 	}
