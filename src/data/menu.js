@@ -38,6 +38,11 @@ export const menuList = [
                 name: '年月选择组件',
                 iconCls: ''
             },
+            {
+                path: '/timePack',
+                name: '时间选择组件',
+                iconCls: ''
+            },
         ]
     },
     {
