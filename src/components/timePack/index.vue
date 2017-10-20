@@ -40,7 +40,7 @@
 		border: 1px solid #ccc;
 		padding-bottom: 30px;
 		box-shadow: 3px 4px 4px rgba(205,215,225,0.5);
-		z-index: 10;
+		z-index: 50;
 		.time-item {
 			display: inline-block;
 			width: 33.3%;
@@ -68,7 +68,7 @@
 			width: 100%;
 			height: 20px;
 			background: rgba(32,160,255,0.6);
-			z-index: 5;
+			z-index: 10;
 			.first {
 				position: absolute;
 				display: inline-block;

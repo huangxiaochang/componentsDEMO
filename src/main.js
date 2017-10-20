@@ -23,6 +23,7 @@ var router = new VueRouter({
  //            }
  //        }
  //    },
+ 	// linkExactActiveClass: 'active',//统一配置路由激活时的类名
 	routes: [
 		...routes
 	]

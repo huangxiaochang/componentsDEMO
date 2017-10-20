@@ -10,6 +10,9 @@
 					<pg-menu :menus="menuList"></pg-menu>
 				</aside>
 				<section class="content-wrape">
+					<router-link exact to="/">首页</router-link>
+					<router-link to="/timePack">时间选择</router-link>
+					<router-link to="/tree">树形结构</router-link>
 					<transition name="fade">
 						<router-view></router-view>
 					</transition>
@@ -19,6 +22,16 @@
 	</div>
 </template>
 <style type="stylesheet/less" lang="less" scoped>
+	.active {
+		background-color: yellow;
+	}
+	.router-link-active {
+		font-size: 20px;
+		// background-color: red;
+	}
+	// .router-link-exact-active {
+	// 	background-color: red;
+	// }
 	.header {
 		width: 100%;
 		height: 100px;

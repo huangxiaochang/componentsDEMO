@@ -63,5 +63,24 @@ export default [
 		meta: {
 			title: '时间选择组件'
 		}
+	},
+	// 重定向,就是路由不正确的时候，会跳转到指定的重定向的页面
+	{
+		path: '*',
+		name: 'noFind',
+		// redirect: '/home',
+		redirect: (to) => {
+			console.log(to,'to')
+			// 可以进行条件跳转
+			// if (to.path === '/timePack2') {
+			// 	console.log('发生了重置定向',404)
+			// 	return '/home'
+			// }
+			return '/home'
+		},
+		meta: {
+			title: '出错了，找不到页面！'
+		},
+		// component: Home
 	}
 ]
