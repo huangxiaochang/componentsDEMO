@@ -29,17 +29,23 @@
 
 <style type="stylesheet/css" lang="less" scoped>
 	@import '~src/assets/css/common.less';
-	.time-wrape {
+	.time-select {
+		width: 150px;
+		display: inline-block;
+	}
+	.time-wrape, .time-slot {
 		position: relative;
 	}
 	.time {
 		position: absolute;
 		width: 150px;
 		height: 200px;
+		left: 0;
 		font-size: 0;
 		border: 1px solid #ccc;
 		padding-bottom: 30px;
 		box-shadow: 3px 4px 4px rgba(205,215,225,0.5);
+		background-color: #1E90FF;
 		z-index: 50;
 		.time-item {
 			display: inline-block;
@@ -67,7 +73,8 @@
 			top: 90px;
 			width: 100%;
 			height: 20px;
-			background: rgba(32,160,255,0.6);
+			//background: rgba(32,160,255,0.6);
+			background: rgba(0,255,255,0.6);
 			z-index: 10;
 			.first {
 				position: absolute;
@@ -88,11 +95,13 @@
 		bottom: 0;
 		font-size: 14px;
 		text-align: right;
+		background-color: white;
 		span {
 			cursor: pointer;
 			display: inline-block;
 			height: 30px;
 			line-height: 30px;
+			color: #000;
 		}
 		.save {
 			color: #58B7FF;

@@ -4,6 +4,7 @@ import calendar from './calendar/index.vue'  //日历
 import monthSelect from './monthSelect/index.vue'  //年月选择
 import tree from './tree/index.vue'  //树形选择
 import timePack from './timePack/index.vue'  //时间选择组件
+import dateTimePack from './dateTimePack/index.vue'  //日期时间选择组件
 
 
 const install = function(Vue) {
@@ -13,6 +14,7 @@ const install = function(Vue) {
 	Vue.component(monthSelect.name, monthSelect)
 	Vue.component(tree.name, tree)
 	Vue.component(timePack.name, timePack)
+	Vue.component(dateTimePack.name, dateTimePack)
 
 }
 export default install
