@@ -103,15 +103,18 @@ export default {
 			}
 			return month
 		},
+		// 触发上一个月
 		pre(currentYear) {
 			this.currentYear -= 1
 			if (this.currentYear === 1970) {
 				this.currentYear = 1970
 			}
 		},
+		// 触发下一个月
 		next(currentYear) {
 			this.currentYear += 1
 		},
+		// 选择某一个年月
 		pick(month) {
 			// 事件触发的方式绑定数据
 			// this.$emit('picmonth', `${this.currentYear}-${month.value}`)
@@ -119,6 +122,7 @@ export default {
 			this.$emit('update:value', `${this.currentYear}-${month.value}`)
 			this.show = false
 		},
+		// 弹出面板
 		showDate() {
 			this.show = true
 		}

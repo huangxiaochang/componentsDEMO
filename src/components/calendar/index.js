@@ -100,6 +100,7 @@ export default {
 			}
 			return `${year}-${month}-${day}`
 		},
+		// 上一个月
 		pre(currentYear, currentMonth) {
 			currentMonth -= 1
 			if (currentMonth <= 0) {
@@ -108,6 +109,7 @@ export default {
 			}
 			this.initDate(`${currentYear}-${currentMonth}`)
 		},
+		// 下一个月
 		next(currentYear, currentMonth) {
 			currentMonth += 1
 			if (currentMonth > 12) {
@@ -116,6 +118,7 @@ export default {
 			}
 			this.initDate(`${currentYear}-${currentMonth}`)
 		},
+		// 选择都的日期
 		pick(day) {
 			alert(this.formatDate(day.getFullYear(),(day.getMonth()+1),day.getDate()))
 			this.$emit('pickDay', day)

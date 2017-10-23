@@ -63,6 +63,7 @@ export default {
 			}
 			return `${number}`
 		},
+		// 点击确定的时候，通过滚动条的滚动的距离，计算选择到的时间
 		save() {
 			this.hourElement = this.$el.querySelector('.hours')
 			this.minuteElement = this.$el.querySelector('.minutes')
@@ -82,6 +83,7 @@ export default {
 			let parent = event.target.parentNode
 			parent.scrollTo(0,20*pos)
 		},
+		// 关闭面板
 		close() {
 			this.show = false
 		},

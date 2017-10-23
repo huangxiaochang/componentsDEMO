@@ -31,6 +31,7 @@ export default {
 		}
 	},
 	watch: {
+		// 通过年月选择面板更改年月的时候，重新获取日历和更新目前选择到的日期
 		yearMonth() {
 			if (this.yearMonth !== '') {
 				let arr = this.yearMonth.split('-')
@@ -121,12 +122,14 @@ export default {
 			}
 			return `${year}-${month}-${day}`
 		},
+		// 格式化时间
 		formatNumber(number) {
 			if (number < 10) {
 				number = "0"+number
 			}
 			return number
 		},
+		// 上一个月
 		pre(currentYear, currentMonth) {
 			currentMonth -= 1
 			if (currentMonth <= 0) {
@@ -134,8 +137,10 @@ export default {
 				currentYear -= 1
 			}
 			this.initDate(`${currentYear}-${currentMonth}`)
+			// 更新目前选择的值
 			this.date = `${currentYear}-${this.formatNumber(currentMonth)}-${this.formatNumber(this.date.substring(9,11))}`
 		},
+		// 下一个月
 		next(currentYear, currentMonth) {
 			currentMonth += 1
 			if (currentMonth > 12) {
@@ -143,8 +148,10 @@ export default {
 				currentYear += 1
 			}
 			this.initDate(`${currentYear}-${currentMonth}`)
+			// 更新目前选择到的值
 			this.date = `${currentYear}-${this.formatNumber(currentMonth)}-${this.formatNumber(this.date.substring(9,11))}`
 		},
+		// 点击某一日时，更新选择到的日期
 		pick(day) {
 			this.date = this.formatDate(day.getFullYear(),(day.getMonth()+1),day.getDate())
 		},
@@ -152,9 +159,11 @@ export default {
 		showPack() {
 			this.show = true
 		},
+		// 关闭面板
 		close() {
 			this.show = false
 		},
+		// 确定选择的日期和时间
 		save() {
 			this.$emit('update:value',`${this.date} ${this.time}`)
 			this.close()

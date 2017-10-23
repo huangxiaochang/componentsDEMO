@@ -50,6 +50,7 @@ export default {
                 this.districtList = []
             }
         },
+        // 选择省之后，根据选择的省，获取该省下的所有的时列表
         stateRegionID() {
             this.cityRegionID = ''
             this.cityList = []
@@ -60,6 +61,7 @@ export default {
             }   
            
         },
+        // 选择市之后，获取市下的所有的区
         cityRegionID() {
             this.districtRegionID = ''
             this.districtList = []
@@ -67,6 +69,7 @@ export default {
                 this.getRegionList(this.cityRegionID)
             }
         },
+        // 选择区之后，把选择到的省市区双向绑定
         districtRegionID() {
             // 显式更新父组件的state字段
             this.$emit('update:state', this.stateRegionID)

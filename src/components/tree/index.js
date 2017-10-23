@@ -15,6 +15,7 @@ export default {
 		},
 	},
 	methods: {
+		// 展开或者关闭某一层级
 		append(val) {
 			// 下面的数据treeData可以是请求接口获得的数据
 			let treeData = {
