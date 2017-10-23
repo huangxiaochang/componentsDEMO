@@ -1,7 +1,6 @@
 export default {
     name: 'PgRegion',
     props: {
-        list: Array,
         state: {
             type: String,
             default: ''

@@ -5,6 +5,7 @@ import monthSelect from './monthSelect/index.vue'  //年月选择
 import tree from './tree/index.vue'  //树形选择
 import timePack from './timePack/index.vue'  //时间选择组件
 import dateTimePack from './dateTimePack/index.vue'  //日期时间选择组件
+import steps from './steps/index.vue'  //步骤条
 
 
 const install = function(Vue) {
@@ -15,6 +16,8 @@ const install = function(Vue) {
 	Vue.component(tree.name, tree)
 	Vue.component(timePack.name, timePack)
 	Vue.component(dateTimePack.name, dateTimePack)
+	Vue.component(steps.name, steps)
+
 
 }
 export default install

@@ -7,6 +7,7 @@ const MonthSelect = resolve => require(['views/monthSelect/index.vue'], resolve)
 const Tree = resolve => require(['views/tree/index.vue'], resolve) // 树形控件
 const TimePack = resolve => require(['views/timePack/index.vue'], resolve) // 树形控件
 const DateTimePack = resolve => require(['views/dateTimePack/index.vue'], resolve) // 日期时间选择组件
+const Steps = resolve => require(['views/steps/index.vue'], resolve) // 步骤条组件
 
 export default [
 	{
@@ -69,6 +70,14 @@ export default [
 		path: '/dateTimePack',
 		name: 'dateTimePack',
 		component: DateTimePack,
+		meta: {
+			title: '日期时间选择组件'
+		}
+	},
+	{
+		path: '/steps',
+		name: 'steps',
+		component: Steps,
 		meta: {
 			title: '日期时间选择组件'
 		}

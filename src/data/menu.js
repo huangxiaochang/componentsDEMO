@@ -62,4 +62,16 @@ export const menuList = [
             }        
         ]
     },
+    {
+        path: '/',
+        name: '步骤条组件',
+        iconCls: '',
+        children: [
+            {
+                path: '/steps',
+                name: '步骤条树形',
+                iconCls: ''
+            }        
+        ]
+    },
 ]
