@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "set PRODUCTION=1 && webpack --progress --hide-modules",
     "dev": "webpack-dev-server --progress --inline --hot",
-    "port": "webpack-dev-server --progress --inline --hot --port 9090"
+    "port": "webpack-dev-server --progress --inline --hot --port 9090",
+    "ip": "webpack-dev-server --progress --inline --hot --port 7070"
   },
   "keywords": [],
   "author": "hxc",

@@ -84,7 +84,10 @@ module.exports = {
          publicPath: "/util/vue/build/",
          此字段配置如果不正确，发布后资源定位不对，比如：css里面的精灵图路径错误
          */
-		publicPath: '/'+buildFolder+'/',
+		// publicPath: '/'+buildFolder+'/',
+		// publicPath是index中引用的路径，也就是发布的时候，要把打包好的js,css等放到publicPath指定的文件夹中
+		//而path是打包之后，js,css存放在本地的文件路径，要放在GitHub上，要设置成空，如下：
+		publicPath: '',
 		filename: production ?'[name].[chunkhash].js' : '[name].js'
 	},
 	module: {
