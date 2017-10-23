@@ -6,6 +6,7 @@ const Calendar = resolve => require(['views/calendar/index.vue'], resolve) // �
 const MonthSelect = resolve => require(['views/monthSelect/index.vue'], resolve) // 年月选择组件
 const Tree = resolve => require(['views/tree/index.vue'], resolve) // 树形控件
 const TimePack = resolve => require(['views/timePack/index.vue'], resolve) // 树形控件
+const DateTimePack = resolve => require(['views/dateTimePack/index.vue'], resolve) // 日期时间选择组件
 
 export default [
 	{
@@ -62,6 +63,14 @@ export default [
 		component: TimePack,
 		meta: {
 			title: '时间选择组件'
+		}
+	},
+	{
+		path: '/dateTimePack',
+		name: 'dateTimePack',
+		component: DateTimePack,
+		meta: {
+			title: '日期时间选择组件'
 		}
 	},
 	// 重定向,就是路由不正确的时候，会跳转到指定的重定向的页面

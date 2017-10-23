@@ -24,6 +24,9 @@
                 </option>
             </select>
         </div>
+        <ul>
+            <li v-for="item in list">{{item.status}}-{{item.remainTime}}</li>
+        </ul>
     </div>
 </template>
 <style rel="stylesheet/less" lang="less" scoped>

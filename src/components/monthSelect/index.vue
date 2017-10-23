@@ -5,7 +5,7 @@
 	        <slot></slot>
 	    </div>
 	    <div class="calendar">
-	    	<div class="year-month" v-if="show">
+	    	<div class="year-month" v-show="show">
 				<!--     年份 前后箭头 -->
 				<ul class="year">
 					<li class="arrow pre-btn" @click="pre(currentYear)"><</li>

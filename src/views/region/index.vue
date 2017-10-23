@@ -21,7 +21,7 @@
 			效果如下
 			
 		</p>
-		<pg-region :state.sync="state" :city.sync="city" :district.sync="district" :styles="style"></pg-region>
+		<pg-region :state.sync="state" :city.sync="city" :district.sync="district" :styles="style" :list="list"></pg-region>
 	</section>
 </template>
 

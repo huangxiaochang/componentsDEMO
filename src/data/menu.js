@@ -43,6 +43,11 @@ export const menuList = [
                 name: '时间选择组件',
                 iconCls: ''
             },
+            {
+                path: '/dateTimePack',
+                name: '日期时间选择组件',
+                iconCls: ''
+            },
         ]
     },
     {

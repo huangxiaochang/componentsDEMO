@@ -3,7 +3,7 @@
 		<!-- <router-view></router-view> -->
 		<!-- <div> -->
 			<header class="header">
-				welcome to huangxiaochang vue-components-demo
+				welcome to huangxiaochang vue-components-demo project
 			</header>
 			<div class="container">
 				<aside class="nav-wrape">
