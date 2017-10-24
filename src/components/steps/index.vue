@@ -9,13 +9,14 @@
 					<span class="horizontal-after-line" :class="[index === steps.length-1 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
 				</div>
 				<div class="content">
-					<span class="title" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{step.title}}</span>
-					<p class="description" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{step.description}}</p>
+					<!-- <span class="title" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{step.title ? step.title : '步骤'+(index+1)}}</span> -->
+					<span class="title" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']" v-if="step.title">{{step.title}}</span>
+					<p class="description" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']" v-if="step.description">{{step.description}}</p>
 				</div>
 			</li>
 		</ul>
 		<!-- 纵向步骤条 -->
-		<ul class="vertical-steps-wrape" v-if="direction === 'vertical'">
+		<ul class="vertical-steps-wrape" v-else>
 			<li class="vertical-step" v-for="(step,index) in steps">
 				<div class="vertical-icon-wrape">
 					<span class="vertical-before-line" :class="[index === 0 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
@@ -42,6 +43,7 @@
 		list-style: none;
 		font-size: 14px;
 		text-align: center;
+		vertical-align: top;
 	}
 	.horizontal-icon-wrape {
 		width: 100%;
