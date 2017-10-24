@@ -110,6 +110,7 @@
 				}
 			},
 			changeDirection() {
+				this.active = 0
 				if (this.direction === 'horizontal') {
 					this.direction = 'vertical'
 				}
