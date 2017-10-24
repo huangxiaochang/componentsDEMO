@@ -1,12 +1,12 @@
 <template>
 	<div>
 		<!-- 横向步骤条 -->
-		<ul class="steps-wrape" v-if="direction === 'horizontal'">
-			<li class="step" v-for="(step,index) in steps">
-				<div class="icon-wrape">
-					<span class="before-line" :class="[index === 0 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
-					<span class="icon" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{index+1}}</span>
-					<span class="after-line" :class="[index === steps.length-1 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
+		<ul class="horizontal-steps-wrape" v-if="direction === 'horizontal'">
+			<li class="horizontal-step" v-for="(step,index) in steps">
+				<div class="horizontal-icon-wrape">
+					<span class="horizontal-before-line" :class="[index === 0 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
+					<span class="horizontal-icon" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{index+1}}</span>
+					<span class="horizontal-after-line" :class="[index === steps.length-1 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
 				</div>
 				<div class="content">
 					<span class="title" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{step.title}}</span>
@@ -15,12 +15,12 @@
 			</li>
 		</ul>
 		<!-- 纵向步骤条 -->
-		<ul class="steps-wrape" v-if="direction === 'vertical'">
-			<li class="step" v-for="(step,index) in steps">
-				<div class="icon-wrape">
-					<span class="before-line" :class="[index === 0 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
-					<span class="icon" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{index+1}}</span>
-					<span class="after-line" :class="[index === steps.length-1 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
+		<ul class="vertical-steps-wrape" v-if="direction === 'vertical'">
+			<li class="vertical-step" v-for="(step,index) in steps">
+				<div class="vertical-icon-wrape">
+					<span class="vertical-before-line" :class="[index === 0 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
+					<span class="vertical-icon" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{index+1}}</span>
+					<span class="vertical-after-line" :class="[index === steps.length-1 ? 'no-line' : '',index <= active-1 ? 'active' : '']"></span>
 				</div>
 				<div class="content">
 					<span class="title" :class="[index <= active-1 ? 'active' : '',index === active ? 'next-active' : '']">{{step.title}}</span>
@@ -34,22 +34,22 @@
 
 <style type="stylesheet/less" lang="less" scoped>
 	@import '~src/assets/css/common.less';
-	.steps-wrape {
+	.horizontal-steps-wrape {
 		font-size: 0;
 	}
-	.step {
+	.horizontal-step {
 		display: inline-block;
 		list-style: none;
 		font-size: 14px;
 		text-align: center;
 	}
-	.icon-wrape {
+	.horizontal-icon-wrape {
 		width: 100%;
 		height: 36px;
 		line-height: 36px;
 		font-size: 0;
 		position: relative;
-		.icon {
+		.horizontal-icon {
 			display: inline-block;
 			position: absolute;
 			top: 0;
@@ -74,7 +74,7 @@
 				color: #fff;
 			}
 		}
-		.after-line, .before-line {
+		.horizontal-after-line, .horizontal-before-line {
 			display: inline-block;
 			border-top: 2px solid #C0CCDA;
 			width: 50%;
@@ -98,6 +98,74 @@
 			}
 			&.next-active {
 				color: #000;
+			}
+		}
+	}
+	// 垂直步骤条的样式
+	.vertical-step {
+		display: table;
+		.vertical-icon-wrape {
+			display: table-cell;
+			position: relative;
+			width: 35px;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			.vertical-icon {
+				display: block;
+				position: absolute;
+				top: 50%;
+				width: 30px;
+				height: 30px;
+				margin-top: -15px;
+				line-height: 27px;
+				border-radius: 50%;
+				text-align: center;
+				z-index: 20;
+				font-size: 14px;
+				color: #C0CCDA;
+				border: 3px solid #C0CCDA;
+				background-color: #fff;
+				box-sizing: border-box;
+				&.active {
+					background-color: #13CE66;
+					color: #fff;
+					border-color: #13CE66;
+				}
+				&.next-active {
+					background-color: #C0CCDA;
+					color: #fff;
+				}
+			}
+			.vertical-after-line, .vertical-before-line {
+				position: absolute;
+				border-left: 2px solid #C0CCDA;
+				height: 50%;
+				z-index: 10;
+				margin-left: 15px;
+				&.active {
+					border-color: #13CE66;
+				}
+			}
+			.vertical-before-line {
+				top: 0;
+			}
+			.vertical-after-line {
+				top: 50%;
+			}
+			.no-line {
+				border: none;
+			}
+		}
+		.content {
+			display: table-cell;
+			.title {
+				display: block;
+				width: 100%;
+				margin: 5px 0;
+			}
+			.description {
+				margin: 5px 0;
 			}
 		}
 	}

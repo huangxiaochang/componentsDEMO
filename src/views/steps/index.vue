@@ -18,14 +18,21 @@
 			效果如下
 			
 		</p>
+		<div class="btn-group">
+			<button @click="pre">上一步</button>
+			<button @click="next">下一步</button>
+			<button @click="changeDirection">垂直方向</button>
+		</div>
 		<pg-steps :steps="data" :active="active" :direction="direction"></pg-steps>
-		<button @click="pre">上一步</button>
-		<button @click="next">下一步</button>
+		
 	</section>
 </template>
 
 <style type="stylesheet/less" lang="less" scoped>
 	@import '~src/assets/css/common.less';
+	.btn-group {
+		margin-bottom: 10px;
+	}
 </style>
 
 <script type="text/babel">
@@ -48,7 +55,7 @@
 				],
 				styles: {},
 				active: 1,
-				direction: 'horizontal'
+				direction: 'horizontal'//horizontal/vertical
 			}
 		},
 		methods: {
@@ -66,6 +73,14 @@
 				}
 				else {
 					this.active++
+				}
+			},
+			changeDirection() {
+				if (this.direction === 'horizontal') {
+					this.direction = 'vertical'
+				}
+				else {
+					this.direction = 'horizontal'
 				}
 			}
 		}
