@@ -70,7 +70,7 @@
 			效果如下
 			
 		</p>
-		<pg-cascader :dataList="data" :value.sync="value">
+		<pg-cascader :dataList="data" :value.sync="value" :id.sync="id">
 			<input type="text" readonly v-model="value">
 		</pg-cascader>
 		<table>
@@ -104,42 +104,38 @@
 	export default {
 		data() {
 			return {
+				level: '',
 				data: [
 					{
 						title: '步骤1',
 						id: '1',
-						class: 0,
 						isShowChildren: false,
 						children: [
 							{
 								title: '步骤211',
 								id: '211',
-								class: 1
+								active: false,
 							}
 						]
 					},
 					{
 						title: '步骤2',
 						id: '2',
-						class: 0,
 						isShowChildren: false,
 						children: [
 							{
 								title: '步骤21',
 								id: '21',
-								class: 1,
 								isShowChildren: false,
 								children: [
 									{
 										title: '步骤211',
 										id: '211',
-										class: 2,
 										isShowChildren: false,
 									},
 									{
 										title: '步骤212',
 										id: '212',
-										class: 2,
 										isShowChildren: false,
 									}
 								]
@@ -147,94 +143,77 @@
 							{
 								title: '步骤22',
 								id: '22',
-								class: 1,
 								isShowChildren: false,
 								children: [
 									{
 										title: '步骤221',
 										id: '221',
-										class: 2,
 										isShowChildren: false,
 									}
 								]
+							},
+							{
+								title: '步骤23',
+								id: '23',
+								isShowChildren: false,
 							}
 						]
 					},
 					{
 						title: '步骤3',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤3',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤3',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤3',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤3',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},{
 						title: '步骤3',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤4',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤4',
 						id: '3',
-						class: 0,
-						isShowChildren: false,
-					},
-					{
-						title: '步骤4',
-						id: '3',
-						class: 0,
-						isShowChildren: false,
-					},
-					{
-						title: '步骤4',
-						id: '3',
-						class: 0,
 						isShowChildren: false,
 					},
 					{
 						title: '步骤5',
 						id: '3',
-						class: 0,
 						isShowChildren: false,
 						children: [
 							{
 								title: '步骤51',
 								id: '51',
-								class: 1,
 								isShowChildren: false,
 							}
 						]
 					}
 				],
-				value: ''
+				value: ['步骤2','步骤21','步骤212'],
+				// id: ['2','22','221'],
+				id: []
 			}
 		},
 		methods: {
