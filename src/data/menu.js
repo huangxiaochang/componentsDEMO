@@ -74,4 +74,16 @@ export const menuList = [
             }        
         ]
     },
+    {
+        path: '/',
+        name: '级联选择组件',
+        iconCls: '',
+        children: [
+            {
+                path: '/cascader',
+                name: '级联选择',
+                iconCls: ''
+            }        
+        ]
+    },
 ]

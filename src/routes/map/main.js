@@ -8,6 +8,7 @@ const Tree = resolve => require(['views/tree/index.vue'], resolve) // 树形控�
 const TimePack = resolve => require(['views/timePack/index.vue'], resolve) // 树形控件
 const DateTimePack = resolve => require(['views/dateTimePack/index.vue'], resolve) // 日期时间选择组件
 const Steps = resolve => require(['views/steps/index.vue'], resolve) // 步骤条组件
+const Cascader = resolve => require(['views/cascader/index.vue'], resolve) // 级联选择组件
 
 export default [
 	{
@@ -79,7 +80,15 @@ export default [
 		name: 'steps',
 		component: Steps,
 		meta: {
-			title: '日期时间选择组件'
+			title: '步骤条组件'
+		}
+	},
+	{
+		path: '/cascader',
+		name: 'cascader',
+		component: Cascader,
+		meta: {
+			title: '级联选择组件'
 		}
 	},
 	// 重定向,就是路由不正确的时候，会跳转到指定的重定向的页面

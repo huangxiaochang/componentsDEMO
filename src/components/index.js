@@ -6,6 +6,7 @@ import tree from './tree/index.vue'  //树形选择
 import timePack from './timePack/index.vue'  //时间选择组件
 import dateTimePack from './dateTimePack/index.vue'  //日期时间选择组件
 import steps from './steps/index.vue'  //步骤条
+import cascader from './cascader/index.vue'  //级联选择器
 
 
 const install = function(Vue) {
@@ -17,6 +18,7 @@ const install = function(Vue) {
 	Vue.component(timePack.name, timePack)
 	Vue.component(dateTimePack.name, dateTimePack)
 	Vue.component(steps.name, steps)
+	Vue.component(cascader.name, cascader)
 
 
 }
