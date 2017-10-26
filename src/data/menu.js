@@ -86,4 +86,16 @@ export const menuList = [
             }        
         ]
     },
+    {
+        path: '/',
+        name: '标签页',
+        iconCls: '',
+        children: [
+            {
+                path: '/tabs',
+                name: '标签页',
+                iconCls: ''
+            }        
+        ]
+    },
 ]

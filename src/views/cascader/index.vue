@@ -78,10 +78,10 @@
 				<td class="tr-td">data</td><td class="tr-td">array</td><td class="tr-td">[]</td>
 			</tr>
 			<tr>
-				<td class="tr-td">active</td><td class="tr-td">number</td><td class="tr-td">0</td>
+				<td class="tr-td">value</td><td class="tr-td">array</td><td class="tr-td"[]0</td>
 			</tr>
 			<tr>
-				<td class="tr-td">direction</td><td class="tr-td">string</td><td class="tr-td">horizontal/vertical</td>
+				<td class="tr-td">id</td><td class="tr-td">array</td><td class="tr-td">[]</td>
 			</tr>
 		</table>
 	</section>
