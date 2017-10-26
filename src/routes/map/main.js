@@ -10,6 +10,7 @@ const DateTimePack = resolve => require(['views/dateTimePack/index.vue'], resolv
 const Steps = resolve => require(['views/steps/index.vue'], resolve) // 步骤条组件
 const Cascader = resolve => require(['views/cascader/index.vue'], resolve) // 级联选择组件
 const Tabs = resolve => require(['views/tabs/index.vue'], resolve) // 标签页组件
+const Loading = resolve => require(['views/loading/index.vue'], resolve) // 加载组件
 
 export default [
 	{
@@ -98,6 +99,14 @@ export default [
 		component: Tabs,
 		meta: {
 			title: '标签页组件'
+		}
+	},
+	{
+		path: '/loading',
+		name: 'loading',
+		component: Loading,
+		meta: {
+			title: '加载组件'
 		}
 	},
 	// 重定向,就是路由不正确的时候，会跳转到指定的重定向的页面

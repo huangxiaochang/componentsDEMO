@@ -98,4 +98,16 @@ export const menuList = [
             }        
         ]
     },
+    {
+        path: '/',
+        name: '加载',
+        iconCls: '',
+        children: [
+            {
+                path: '/loading',
+                name: '加载组件',
+                iconCls: ''
+            }        
+        ]
+    },
 ]
