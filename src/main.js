@@ -3,6 +3,10 @@ import App from './app.vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
 import Component from './components'
+//引入字体图标
+// 以这种方式引入的时候，需要在webpack中增加.eot/.svg/.ttf/.woff的loaders的file-loader，详细的配置见webpack
+// 注意要安装file-loader
+import '!style-loader!css-loader!less-loader!./assets/font/iconfont.css' 
 
 // 注册vue全局组件
 Vue.use(Component)
