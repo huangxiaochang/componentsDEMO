@@ -78,6 +78,8 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname+'/'+buildFolder),
+		// webpack2.0+
+		// path: path.join(__dirname, buildFolder),
 		/**
          publicPath路径就是你发布之后的路径，
          比如你想发布到你站点的/util/vue/build 目录下, 那么设置
@@ -114,6 +116,11 @@ module.exports = {
                 test: /\.less$/,
                 loader: 'style-loader!css-loader!less-loader',
                 include: [path.resolve(__dirname, 'src')]
+            },
+            {
+                // 专供iconfont方案使用的，后面会带一串时间戳，需要特别匹配到
+                test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
+                loader: 'file-loader'
             },
 		]
 	},
