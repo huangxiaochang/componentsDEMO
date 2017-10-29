@@ -110,4 +110,16 @@ export const menuList = [
             }        
         ]
     },
+    {
+        path: '/',
+        name: '上传组件',
+        iconCls: '',
+        children: [
+            {
+                path: '/upload',
+                name: '上传组件',
+                iconCls: ''
+            }        
+        ]
+    },
 ]
