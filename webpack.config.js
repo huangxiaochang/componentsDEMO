@@ -115,6 +115,11 @@ module.exports = {
                 loader: 'style-loader!css-loader!less-loader',
                 include: [path.resolve(__dirname, 'src')]
             },
+            {
+                // 专供iconfont方案使用的，后面会带一串时间戳，需要特别匹配到
+                test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
+                loader: 'file-loader'
+            },
 		]
 	},
 	// 插件
