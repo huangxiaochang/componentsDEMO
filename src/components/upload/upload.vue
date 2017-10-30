@@ -31,7 +31,7 @@
             </li>
         </ul>
         <!-- 上传按钮 -->
-        <div class="upload-btn" @click="handleClick">
+        <div class="upload-btn" @click="handleClick" v-if="isShowUpload">
             <i class="img-icon iconfont icon-add"></i>
             <input 
                 type="file" 

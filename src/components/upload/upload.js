@@ -2,29 +2,37 @@
 export default {
     name: 'PgUpload',
     props: {
+        // 单传，或多传
         multiple: {
             type: Boolean,
-            default: true,
+            default: false,
         },
+        // 允许上传的文件类型
         accept: {
             type: String,
             default() {
                 return '*'
             }
         },
+        // 初始化
         files: {
             type: Array,
             default() {
                 return []
             }
         },
+        // 提示
         tip: {
             type: String,
-            default: '100x100'
+            default: ''
         },
         isImgFile: {
             type: Boolean,
-            default: false // true为图片 false为其他
+            default: true // true为图片 false为其他
+        },
+        max: {
+            type: Number,
+            default: 10 // 允许上传的文件的大小
         }
     },
     data() {
@@ -35,18 +43,19 @@ export default {
         }
     },
     watch: {
-        files() {
-            const tempFiles = []
-            this.files.forEach((item) => {
-                if (item != '' && item != null) {
-                    tempFiles.push({
-                        imgUrl: item,
-                        isSuccess: true
-                    })
-                }
-            })
-            this.fileList = tempFiles
-        },
+        // 实际使用过程中的初始化
+        // files() {
+        //     const tempFiles = []
+        //     this.files.forEach((item) => {
+        //         if (item != '' && item != null) {
+        //             tempFiles.push({
+        //                 imgUrl: item,
+        //                 isSuccess: true
+        //             })
+        //         }
+        //     })
+        //     this.fileList = tempFiles
+        // },
         fileList() {
             if (!this.multiple && this.fileList.length > 0) {
                 this.isShowUpload = false
@@ -56,7 +65,31 @@ export default {
             }
         }
     },
+    mounted() {
+       this.init()
+    },
     methods: {
+        // 初始化,本地模拟的数据，实际引用中需要删除，使用上面的watch方法进行初始化
+        init() {
+            let result = ''
+            const rootPath = '/src/assets/img/'
+            const tempFiles = []
+            this.files.forEach((item) => {
+                if (this.isImgFile) {
+                    result = rootPath+`img1.jpg`
+                }
+                else {
+                    result = item
+                }
+                if (item != '' && item != null) {
+                    tempFiles.push({
+                        imgUrl: result,
+                        isSuccess: true
+                    })
+                }                
+            })
+            this.fileList = tempFiles
+        },
         handleClick() {
             this.$refs.input.click()
         },
@@ -80,12 +113,16 @@ export default {
             })
         },
         upload(file) {
-            if (!this.isImgFile) {
-                if (file.size / 1024 / 1024 > 10) {
-                    this.$message.error(file.name + '超过10M的限制！')
+            // if (!this.isImgFile) {
+                // if (file.size / 1024 / 1024 > 10) {
+                //     this.$message.error(file.name + '超过10M的限制！')
+                //     return
+                // }
+                if (file.size / 1024 / 1024  > this.max) {
+                    alert(file.name + `超过${this.max}M的限制！`)
                     return
                 }
-            }
+            // }
             if (this.multiple) {
                 this.fileList.push({
                     isSuccess: false,
