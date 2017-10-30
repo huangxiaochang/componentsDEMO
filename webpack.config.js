@@ -78,6 +78,8 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname+'/'+buildFolder),
+		// webpack2.0+
+		// path: path.join(__dirname, buildFolder),
 		/**
          publicPath路径就是你发布之后的路径，
          比如你想发布到你站点的/util/vue/build 目录下, 那么设置

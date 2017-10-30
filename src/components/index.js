@@ -9,6 +9,7 @@ import steps from './steps/index.vue'  //步骤条
 import cascader from './cascader/index.vue'  //级联选择器
 import tabs from './tabs/index.vue'  //标签页
 import loading from './loading/index.vue'  //loading
+import upload from './upload/upload.vue'  //上传组件
 
 
 const install = function(Vue) {
@@ -23,6 +24,7 @@ const install = function(Vue) {
 	Vue.component(cascader.name, cascader)
 	Vue.component(tabs.name, tabs)
 	Vue.component(loading.name, loading)
+	Vue.component(upload.name, upload)
 
 }
 export default install
