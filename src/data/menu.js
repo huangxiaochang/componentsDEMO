@@ -122,4 +122,16 @@ export const menuList = [
             }        
         ]
     },
+    {
+        path: '/',
+        name: '分页组件',
+        iconCls: '',
+        children: [
+            {
+                path: '/pagination',
+                name: '分页组件',
+                iconCls: ''
+            }        
+        ]
+    },
 ]

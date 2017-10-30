@@ -12,6 +12,7 @@ const Cascader = resolve => require(['views/cascader/index.vue'], resolve) // �
 const Tabs = resolve => require(['views/tabs/index.vue'], resolve) // 标签页组件
 const Loading = resolve => require(['views/loading/index.vue'], resolve) // 加载组件
 const Upload = resolve => require(['views/upload/index.vue'], resolve) // 上传组件
+const Pagination = resolve => require(['views/pagination/index.vue'], resolve) // 分页组件
 
 export default [
 	{
@@ -116,6 +117,14 @@ export default [
 		component: Upload,
 		meta: {
 			title: '上传组件'
+		}
+	},
+	{
+		path: '/pagination',
+		name: 'pagination',
+		component: Pagination,
+		meta: {
+			title: '分页组件'
 		}
 	},
 	// 重定向,就是路由不正确的时候，会跳转到指定的重定向的页面
