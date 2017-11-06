@@ -57,6 +57,7 @@ export default {
 			this.nextDot = false
 			this.preDot = false
 			this.activePage = []
+			this.gotoPage = 1
 			//控制显示的页数
 			if (this.pageCount > 7) {
 				for(let i=2; i < 7;i++) {
@@ -114,6 +115,7 @@ export default {
 		// 当前页的变化
 		activePageChange(index) {
 			this.active = index
+			this.gotoPage = 1
 			// 更新当前活动页列表
 			this.handlerPageChange()
 		},
@@ -150,6 +152,7 @@ export default {
 		/*上一页*/
 		prePage() {
 			--this.active
+			this.gotoPage = 1
 			// 只在页面多于指定显示页数(6)、目前页是最后一页的前4页之前的页数和目前页大于前4页时，进行页面的省略操作
 			if (this.active < this.pageCount - 3 && this.pageCount > 6 && this.active > 3) {
 				this.nextDot = true
@@ -163,6 +166,7 @@ export default {
 		// 下一页
 		nextPage() {
 			++this.active
+			this.gotoPage = 1
 			// 只在页面多于指定显示页数(6)、目前页是最后一页的前4页之前的页数和目前页大于前4页时，进行页面的省略操作
 			if ( this.active > 4 && this.pageCount > 6 && this.active+2 < this.pageCount) {
 				this.preDot = true
@@ -177,16 +181,20 @@ export default {
 		// 上一批活动页
 		preActivePage() {
 			this.active -= 5
+			this.gotoPage = 1
+			if (this.active < 1) {
+				this.active = 1
+			}
 			this.activePage = []
 			// 目前页小于最后一页的前4页时，显示下一页的省略号
-			if (this.active < this.pageCount - 4) {
+			if (this.active < this.pageCount - 4 && this.pageCount > 7) {
 				this.nextDot = true
 			}
 			else {
 				this.nextDot = false
 			}
 			// 目前页大于最后一页的前4页时，显示下一页的省略号
-			if (this.active >  4) {
+			if (this.active >  4 && this.pageCount > 7) {
 				this.preDot = true
 			}
 			else {
@@ -206,16 +214,20 @@ export default {
 		// 下一批活动页
 		nextActivePage() {
 			this.active += 5
+			this.gotoPage = 1
+			if (this.active > this.pageCount) {
+				this.active = this.pageCount
+			}
 			this.activePage = []
 			// 目前页小于最后一页的前4页时，显示下一页的省略号
-			if (this.active < this.pageCount - 4) {
+			if (this.active < this.pageCount - 4 && this.pageCount > 7) {
 				this.nextDot = true
 			}
 			else {
 				this.nextDot = false
 			}
 			// 目前页大于最后一页的前4页时，显示下一页的省略号
-			if (this.active >  4) {
+			if (this.active >  4 && this.pageCount > 7) {
 				this.preDot = true
 			}
 			else {

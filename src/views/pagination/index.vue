@@ -78,7 +78,7 @@
 		data() {
 			return {
 				pageSize: 15,
-				total: 1000,
+				total: 100,
 				page: 1,
 				isShowSize: true,
 				isGoTo: true
