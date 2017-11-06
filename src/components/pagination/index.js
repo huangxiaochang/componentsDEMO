@@ -8,6 +8,14 @@ export default {
 		total: {
 			type: Number,
 			default: 0,
+		},
+		isShowSize: {
+			type: Boolean,
+			default: true
+		},
+		isGoTo: {
+			type: Boolean,
+			default: true
 		}
 	},
 	data() {
@@ -36,12 +44,36 @@ export default {
 			activePage: [],//动态页
 			preDot: false,//向前的点
 			nextDot: false,//向后的点
+			gotoPage: 1,//前往的页数
 		}
 	},
 	watch: {
 		// 页面条数改变
 		pageSize() {
 			this.$emit('pageSizeChange',this.pageSize)
+			// 改变页数
+			this.pageCount = Math.ceil(this.total/this.pageSize)
+			this.active = 1
+			this.nextDot = false
+			this.preDot = false
+			this.activePage = []
+			//控制显示的页数
+			if (this.pageCount > 7) {
+				for(let i=2; i < 7;i++) {
+					this.activePage.push(i)
+				}
+				this.nextDot = true
+			}
+			else {
+				for(let i=2; i < this.pageCount ;i++) {
+					this.activePage.push(i)
+				}
+				this.nextDot = false
+			}
+		},
+		// 当前页改变的时候，触发事件
+		active() {
+			this.$emit('pageChange', this.active)
 		}
 	},
 	mounted() {
@@ -66,21 +98,54 @@ export default {
 			// 获取页数
 			this.pageCount = Math.ceil(this.total/this.pageSize)
 			//控制显示的页数
-			if (this.pageCount > 6) {
-				for(let i=2; i<7;i++) {
+			if (this.pageCount > 7) {
+				for(let i=2; i < 7;i++) {
 					this.activePage.push(i)
 				}
 				this.nextDot = true
-				console.log(this.activePage)
+			}
+			else {
+				for(let i=2; i < this.pageCount ;i++) {
+					this.activePage.push(i)
+				}
+				this.nextDot = false
 			}
 		},
-		// 每页条数改变
-		sizeChange(size) {
-			
-		},
 		// 当前页的变化
-		pageChange(index) {
+		activePageChange(index) {
 			this.active = index
+			// 更新当前活动页列表
+			this.handlerPageChange()
+		},
+		// 当前页变化时，处理当前活动页列表的函数
+		handlerPageChange() {
+			if (this.pageCount > 7) {
+				if (this.active > 4 && this.active < this.pageCount-3) {
+					this.preDot = true
+					this.nextDot = true
+					this.activePage = []
+					for(let i=this.active-2; i < this.active+3 ;i++) {
+						this.activePage.push(i)
+					}
+				}
+				else if(this.active <= 4){
+					this.preDot = false
+					this.nextDot = this.pageCount > 7
+					this.activePage = []
+					let min = (this.pageCount > 7 ? 7 : this.pageCount)*1
+					for(let i = 2; i < min;i++) {
+						this.activePage.push(i)
+					}
+				}
+				else {
+					this.nextDot = false
+					this.preDot = true
+					this.activePage = []
+					for(let i = this.pageCount-5; i < this.pageCount;i++) {
+						this.activePage.push(i)
+					}
+				}
+			}
 		},
 		/*上一页*/
 		prePage() {
@@ -157,7 +222,7 @@ export default {
 				this.preDot = false
 			}
 			if (this.active + 3 > this.pageCount) {
-				for(let i = this.pageCount - 6 ; i < this.pageCount - 1 ; i++) {
+				for(let i = this.pageCount - 6 ; i < this.pageCount ; i++) {
 					this.activePage.push(i)
 				}
 			}
@@ -166,6 +231,20 @@ export default {
 					this.activePage.push(i)
 				}
 			}
+		},
+		// 跳转到其他页
+		gotoOther() {
+			if (typeof this.gotoPage !== 'number') {
+				return
+			}
+			this.active = this.gotoPage
+			if (this.active > this.pageCount) {
+				this.active = this.pageCount
+			}
+			if (this.active < 1) {
+				this.active = 1
+			}
+			this.handlerPageChange()
 		}
 	}
 }

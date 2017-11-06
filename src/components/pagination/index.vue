@@ -1,27 +1,30 @@
 <template>
 	<!-- 分页 -->
-	<div class="pagination-wrape">
-		<select class="page-size" v-model="pageSize">
-			<option class="size-item" v-for="size in sizeList" :key="size.value" :value="size.value" @click="sizeChange(size)">{{size.title}}</option>
+	<div class="pagination-wrape" v-if="pageCount !== 0">
+		<select class="page-size" v-model="pageSize" v-if="isShowSize">
+			<option class="size-item" v-for="size in sizeList" :key="size.value" :value="size.value">{{size.title}}</option>
 		</select>
 		<ul class="page-item">
 			<button class="pre item" @click="prePage" :disabled="active === 1"><</button>
-			<li class="item" :class="[active === 1 ? 'active' : '']" @click="pageChange(1)">1</li>
+			<li class="item" :class="[active === 1 ? 'active' : '']" @click="activePageChange(1)">1</li>
 
 			<li class="item preDot" v-if="preDot">
 				<span class="dot">...</span>
 				<span class="pre" @click="preActivePage"><<</span>
 			</li>
-			<li class="item" v-for="item in activePage" :class="[item === active ? 'active' : '']" @click="pageChange(item)">{{item}}</li>
+			<li class="item" v-for="item in activePage" :class="[item === active ? 'active' : '']" @click="activePageChange(item)">{{item}}</li>
 			<li class="item nextDot" v-if="nextDot">
 				<span class="dot">...</span>
 				<span class="next" @click="nextActivePage">>></span>
 			</li>
 
-			<li class="item" :class="[active === pageCount ? 'active' : '']" @click="pageChange(pageCount)" v-if="pageCount > 6">{{pageCount}}</li>
+			<li class="item" :class="[active === pageCount ? 'active' : '']" @click="activePageChange(pageCount)" v-if="pageCount !== 1">{{pageCount}}</li>
 			<button class="next item" :disabled="active === pageCount" @click="nextPage">></button>
 		</ul>
 		<span class="total">共{{total}}条</span>
+		<div class="goto" v-if="isGoTo">
+			前往<input type="text" v-model.number="gotoPage" class="input" @keyup.enter="gotoOther">页
+		</div>
 	</div>
 </template>
 
@@ -122,6 +125,19 @@
 		height: 30px;
 		line-height: 30px;
 		color: #878D99;
+	}
+	.goto {
+		display: inline-block;
+		font-size: 14px;
+		margin-left: 10px;
+		vertical-align: top;
+		.input {
+			display: inline-block;
+			width: 30px;
+			height: 21px;
+			line-height: 21px;
+			margin: 0 5px;
+		}
 	}
 </style>
 
