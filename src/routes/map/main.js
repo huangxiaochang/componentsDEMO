@@ -19,6 +19,7 @@ export default [
 		path: '/home',
 		name: 'home',
 		component: Home,
+		// alias: ['/index','/ind'], //路由别名
 		meta: {
 			title: '首页'
 		}
@@ -29,14 +30,25 @@ export default [
 		component: VerticalMenu,
 		meta: {
 			title: '垂直菜单'
-		}
+		},
+		// beforeEnter(to,from,next) {
+		// 	console.log(5)
+		// 	next()
+		// }
 	},
 	{
 		path: '/region',
+		// props: (route) => {
+		// 	console.log(route,5)
+		// 	return ({
+		// 		query: route.query.q
+		// 	})
+		// },  //向路由组件传递props(可以为对象模式，布尔模式，函数模式),然后再组件的props: ['query'],即可拿到数据
 		name: 'region',
 		component: Region,
 		meta: {
-			title: '省市区'
+			title: '省市区',
+			auth: true
 		}
 	},
 	{

@@ -30,6 +30,14 @@ export default {
 	mounted() {
 		this.changeData()
 	},
+	// beforeRouteLeave(to,from,next) {
+	// 	console.log(2)
+	// 	next()
+	// },
+	// beforeRouteUpdate(to,from,next) {
+	// 	console.log(4)
+	// 	next()
+	// },
 	methods: {
 		changeData() {
 			let self = this

@@ -34,14 +34,33 @@ var router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.fullPath == '/') {
+	// console.log(3)
+	//判断是否需要登录
+	if (to.matched.some(record => record.meta.auth)) {
+		//如果还没有登录
+		console.log('请先登录')
+		// 没有登录，重定向到登录页面
+		next({
+			path: '/login'
+		})
+		// 如果已经登录
+	}
+	// 不需要登录
+    if (to.fullPath == '/') { 
         next('/home')
     }
     else {
         next()
     }
 })
-
+// 路由导航执行顺序
+// router.beforeResolve((to,from,next) => {
+// 	console.log(7)
+// 	next()
+// })
+// router.afterEach((to,from,next) => {
+// 	console.log(8)
+// })
 new Vue({
 	router,
 	render: (h) => h(App)

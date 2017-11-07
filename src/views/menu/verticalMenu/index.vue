@@ -54,6 +54,9 @@
 </style>
 <script type="text/babel">
 	export default {
-
+		// beforeRouteEnter(to,from,next) {
+		// 	console.log(6)
+		// 	next()
+		// }
 	}
 </script>
