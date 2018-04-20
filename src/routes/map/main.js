@@ -12,6 +12,7 @@ const Cascader = resolve => require(['views/cascader/index.vue'], resolve) // �
 const Tabs = resolve => require(['views/tabs/index.vue'], resolve) // 标签页组件
 const Loading = resolve => require(['views/loading/index.vue'], resolve) // 加载组件
 const Upload = resolve => require(['views/upload/index.vue'], resolve) // 上传组件
+const Download = resolve => require(['views/download/index.vue'], resolve) // 上传组件
 const Pagination = resolve => require(['views/pagination/index.vue'], resolve) // 分页组件
 
 export default [
@@ -129,6 +130,14 @@ export default [
 		component: Upload,
 		meta: {
 			title: '上传组件'
+		}
+	},
+	{
+		path: '/download',
+		name: 'download',
+		component: Download,
+		meta: {
+			title: '下载组件'
 		}
 	},
 	{

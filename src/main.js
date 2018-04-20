@@ -34,6 +34,8 @@ var router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+	console.log(window.location)
+	// window.location.hostname = 'www.baidu.com'
 	// console.log(3)
 	//判断是否需要登录
 	if (to.matched.some(record => record.meta.auth)) {

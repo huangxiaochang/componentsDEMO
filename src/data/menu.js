@@ -112,14 +112,19 @@ export const menuList = [
     },
     {
         path: '/',
-        name: '上传组件',
+        name: '上传与下载组件',
         iconCls: '',
         children: [
             {
                 path: '/upload',
                 name: '上传组件',
                 iconCls: ''
-            }        
+            },
+            {
+                path: '/download',
+                name: '下载组件',
+                iconCls: ''
+            }       
         ]
     },
     {
